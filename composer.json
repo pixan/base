@@ -1,0 +1,15 @@
+{
+    "name": "pixan/base",
+    "description": "Base app for mobile and web platforms",
+    "require": {},
+    "authors": [
+        {
+            "name": "Guillermo Villalobos",
+            "email": "guillermo@pixan.io"
+        },
+        {
+            "name": "Alan Torres",
+            "email": "alan@pixan.io"
+        }
+    ]
+}
