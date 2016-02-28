@@ -2,6 +2,11 @@
     "name": "pixan/base",
     "description": "Base app for mobile and web platforms",
     "require": {},
+    "autoload": {
+        "psr-4": {
+            "Pixan\\Base\\": "src"
+        }
+    },
     "authors": [
         {
             "name": "Guillermo Villalobos",
