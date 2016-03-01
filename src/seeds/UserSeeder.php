@@ -1,7 +1,8 @@
 <?php
-namespace Pixan\Base;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+use Pixan\Base\User as User;
 
 class UserSeeder extends Seeder
 {
