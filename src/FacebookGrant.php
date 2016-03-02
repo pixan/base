@@ -1,6 +1,6 @@
 <?php
 
-namespace League\OAuth2\Server\Grant;
+namespace Pixan\Base;
 
 use League\OAuth2\Server\Entity\AccessTokenEntity;
 use League\OAuth2\Server\Entity\ClientEntity;
