@@ -10,6 +10,7 @@ use League\OAuth2\Server\Event;
 use League\OAuth2\Server\Exception;
 use League\OAuth2\Server\Util\SecureKey;
 use Symfony\Component\HttpFoundation\Response;
+use League\OAuth2\Server\Grant\AbstractGrant as AbstractGrant;
 
 /**
  * Password grant class
