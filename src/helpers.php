@@ -10,20 +10,20 @@ if ( ! function_exists('createOrUpdateFbCustomer')){
     function createOrUpdateFbCustomer($facebook_token, $client_id)
     {
 
-        //Your FB applion app id and secret (normally in the config file of the package) 
+        //Your FB applion app id and secret (normally in the config file of the package)
 
         $fb = App::make('SammyK\LaravelFacebookSdk\LaravelFacebookSdk');
         //$response = $fb->get('/me?fields=id,name', '');
         $fb->setDefaultAccessToken($facebook_token);
 
         $oauth_client = $fb->getOAuth2Client();
-        
+
         $token = $oauth_client->getLongLivedAccessToken($facebook_token);
 
 
         $response = $fb->get('/me?fields=id,name,picture', $token);
         $facebook_user = $response->getGraphUser();
-        
+
         if(!($user = User::where('facebook_id', $facebook_user->getId())->first() ) ){
             $user = new User;
         }
@@ -33,7 +33,14 @@ if ( ! function_exists('createOrUpdateFbCustomer')){
         $user->save();
 
         return $user->id;
-        
+
+    }
+}
+
+if ( ! function_exists('createOrUpdateTwCustomer')){
+    function createOrUpdateTwCustomer($twitter_token, $client_id)
+    {
+
     }
 }
 
