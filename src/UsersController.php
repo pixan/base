@@ -27,16 +27,14 @@ class UsersController extends ApiController {
             'name'          => 'required',
             'email'         => 'required|email|unique:users,email',
             'password'      => 'required',
-            'avatar'        => 'image',
-            'lat'           => 'required',
-            'lon'           => 'required'
+            'avatar'        => 'image'
         );
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
             return $this->respondWithValidationErrors($validator->messages());
         }
         else{
-            
+
             $user = new User;
             $user->name     = $request->get('name');
             $user->email    = $request->get('email');
@@ -77,7 +75,7 @@ class UsersController extends ApiController {
                 $user = User::findOrFail($id);
                 $this->setProfilePicture($user, $request);
                 return $this->setMessages([ "user_id" => ["Profile Picture was successfully updated"]])->respondWithData([]);
-            }        
+            }
         }
     }
 
@@ -123,7 +121,7 @@ class UsersController extends ApiController {
         }
 
         $user = User::findOrFail($user_id);
-        
+
         return $this->respondWithData(['user' => $this->userTransformer->transform($user)]);
     }
 
@@ -135,7 +133,7 @@ class UsersController extends ApiController {
         if($validator->fails()){
             return $this->respondWithValidationErrors($validator->messages());
         }
-        
+
         $user = User::findOrFail($user_id);
         $friends = $user->currentFriends;
         return $this->respondWithData(['friends' => $this->userTransformer->transformCollection($friends->toArray())]);
