@@ -66,6 +66,7 @@ class ApiController extends Controller
 
 	public function respondWithData($data){
 		$this->response->data = $data;
+
 		return $this->setStatusCode(SymfonyResponse::HTTP_OK)->respond();
 	}
 
